@@ -32,9 +32,17 @@ function calculateBtnClicked() {
     
     if (billTotal >= 30){
         billTotalElement.classList.add("danger");
+        billTotalElement.classList.remove("warning");
+
     }
     else if (billTotal >= 20){
         billTotalElement.classList.add("warning");
+        billTotalElement.classList.remove("danger");
+
+    }else{
+        billTotalElement.classList.remove("warning");
+        billTotalElement.classList.remove("danger");
+
     }
     billTotalElement.innerHTML = roundedBillTotal;
 }
