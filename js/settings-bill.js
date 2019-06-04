@@ -115,14 +115,14 @@ function Settings() {
         totalSettings.classList.remove("warning")
     }
     if (criticalLevel < totalSettings) {
-       // totalSettings.classList.add("warning")
-        totalSettings.classList.remove("danger")
-    }
-
-    else {
         totalSettings.classList.remove("warning")
         totalSettings.classList.remove("danger")
     }
+
+    // else {
+    //     totalSettings.classList.remove("warning")
+    //     totalSettings.classList.remove("danger")
+    // }
 
 }
 
