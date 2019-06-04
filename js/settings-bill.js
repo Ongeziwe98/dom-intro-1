@@ -106,23 +106,19 @@ function Settings() {
         totalSettings.classList.remove("warning");
 
     }
-    if (totals >= warningLevel) {
+    if (totals >= warningLevel && totals < criticalLevel) {
         totalSettings.classList.add("warning");
         totalSettings.classList.remove("danger");
     }
-    if (totalSettings < warningLevel) {
+    if (totals < warningLevel) {
         totalSettings.classList.remove("danger")
         totalSettings.classList.remove("warning")
-    }
-    if (criticalLevel < totalSettings) {
-        totalSettings.classList.remove("warning")
-        totalSettings.classList.remove("danger")
     }
 
     // else {
-    //     totalSettings.classList.remove("warning")
-    //     totalSettings.classList.remove("danger")
-    // }
+  //  totalSettings.classList.remove("warning")
+//  totalSettings.classList.remove("danger")
+   // }
 
 }
 
