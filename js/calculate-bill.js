@@ -1,50 +1,148 @@
-//get a reference to the calculate button
-
-//get a reference to the billTotal element
-
-//get a reference to the billString
-
-//create the function that will be called when the calculate button is pressed
-//  * this function should read the string value entered - split it on a comma.
-//  * loop over all the entries in the the resulting list
-//  * check if it is a call or an sms and add the right amount to the overall total
-//  * once done looping over all the entries - display the total onto the screen in the billTotal element
-
-//link the function to a click event on the calculate button
-var billStringField = document.querySelector(".billString");
-var calculateBtn = document.querySelector(".calculateBtn");
-var billTotalElement = document.querySelector(".billTotal");
-
-function calculateBtnClicked() {
-    var billString = billStringField.value;
-    var billItems = billString.split(",");
+function calculateBtnClicked(){
     var billTotal = 0;
-    for (var i = 0; i < billItems.length; i++) {
-        var billItem = billItems[i].trim();
-        if (billItem === "call") {
+
+    function phoneBills(bills){
+        if(bills  === "call"){
             billTotal += 2.75;
         }
-        else if (billItem === "sms") {
+       else if(bills  === "sms"){
             billTotal += 0.75;
         }
+        return "R" + billTotal.toFixed(2)
     }
-    var roundedBillTotal = billTotal.toFixed(2);
-    
-    if (billTotal >= 30){
-        billTotalElement.classList.add("danger");
-        billTotalElement.classList.remove("warning");
 
-    }
-    else if (billTotal >= 20){
-        billTotalElement.classList.add("warning");
-        billTotalElement.classList.remove("danger");
-
-    }else{
-        billTotalElement.classList.remove("warning");
-        billTotalElement.classList.remove("danger");
-
-    }
-    billTotalElement.innerHTML = roundedBillTotal;
+ 
+function criticalLevel(){
+    return billTotal >= 30;
 }
+
+function warningLevel(){
+    return billTotal >= 20;
+}
+
+return{
+    billsMade: phoneBills,
+    colorIndicator1: criticalLevel,
+    colorIndicator2: warningLevel
+
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// var calculateBtnClicked= function(){
+
+//     // this is scoped inside the ShoppingBasket function
+//     var fruitsBought = {};
+
+//     var buyFruit = function(fruitName){
+//         if (fruitsBought[fruitName] === undefined){
+//             fruitsBought[fruitName] = 0;
+//         }
+//         fruitsBought[fruitName] += 1;
+//     };
+
+//     var checkFruit = function(fruitName){
+//         return "You have " + fruitsBought[fruitName] + " " + fruitName + "(s) in your basket.";
+//     }
+
+//     return {
+//         buy : buyFruit,
+//         check : checkFruit
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function calculateBtnClicked() {
+//     var billString = billStringField.value;
+//     var billItems = billString.split(",");
+//     var billTotal = 0;
+//     for (var i = 0; i < billItems.length; i++) {
+//         var billItem = billItems[i].trim();
+//         if (billItem === "call") {
+//             billTotal += 2.75;
+//         }
+//         else if (billItem === "sms") {
+//             billTotal += 0.75;
+//         }
+//     }
+//     var roundedBillTotal = billTotal.toFixed(2);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+//     if (billTotal >= 30){
+//         billTotalElement.classList.add("danger");
+//         billTotalElement.classList.remove("warning");
+
+//     }
+//     else if (billTotal >= 20){
+//         billTotalElement.classList.add("warning");
+//         billTotalElement.classList.remove("danger");
+
+//     }else{
+//         billTotalElement.classList.remove("warning");
+//         billTotalElement.classList.remove("danger");
+
+//     }
+//     billTotalElement.innerHTML = roundedBillTotal;
+// }
     calculateBtn.addEventListener('click', calculateBtnClicked);
 

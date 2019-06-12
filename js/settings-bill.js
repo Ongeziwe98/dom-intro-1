@@ -105,6 +105,7 @@ function Settings() {
         totalSettings.classList.add("danger");
         totalSettings.classList.remove("warning");
 
+        
     }
     if (totals >= warningLevel && totals < criticalLevel) {
         totalSettings.classList.add("warning");
